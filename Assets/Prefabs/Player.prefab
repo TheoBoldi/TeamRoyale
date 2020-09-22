@@ -109,8 +109,8 @@ GameObject:
   - component: {fileID: 4141840883370220927}
   - component: {fileID: 4141840883370220920}
   - component: {fileID: 4141840883370220921}
-  - component: {fileID: 4141840883370220922}
   - component: {fileID: 1198609095}
+  - component: {fileID: 4141840883370220922}
   - component: {fileID: 1198609091}
   m_Layer: 0
   m_Name: Player
@@ -205,20 +205,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4141840883370220922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4141840883370220923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 594c3d323242e6f4d960b0685591b456, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  rb: {fileID: 4141840883370220921}
 --- !u!61 &1198609095
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -245,6 +231,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.45, y: 4.55}
   m_EdgeRadius: 0
+--- !u!114 &4141840883370220922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4141840883370220923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594c3d323242e6f4d960b0685591b456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  rb: {fileID: 4141840883370220921}
 --- !u!114 &1198609091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +262,10 @@ MonoBehaviour:
   shieldDuration: 2
   shieldCooldown: 0.1
   shieldMaxSise: 1
-  slowAllPlayerInclude: 0
+  alsoSlowDownPlayer: 1
+  alsoSpeedUpPlayer: 1
+  slowSpeedPlayerMultiplicator: 0.9
+  fastSpeedPlayerMultiplicator: 1.5
   slowSpeedMultiplicator: 0.5
   fastSpeedMultiplicator: 1.5
   slowDuration: 5
