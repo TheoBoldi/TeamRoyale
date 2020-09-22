@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Patrol : MonoBehaviour
 {
-    [Header("Transform")]
     private Transform origin;
+    [Header("Destination points")]
     public List<Transform> destination;
 
-    [Header("Timer")]
-    public float timer = 3f;
+    [Header("Speed")]
+    public float speed = 3f;
 
     private int i = 0;
 
@@ -22,9 +22,9 @@ public class Patrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer > 0)
+        if (speed > 0)
         {
-            float ratio = Time.deltaTime * timer;
+            float ratio = Time.deltaTime * speed;
             transform.position = Vector2.MoveTowards(origin.position, destination[i].position, ratio);
 
             if (Vector2.Distance(this.transform.position, destination[i].position) < 0.5f)
