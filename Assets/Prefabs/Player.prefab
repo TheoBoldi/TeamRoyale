@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1714081119}
   - component: {fileID: 1714081120}
   m_Layer: 0
-  m_Name: Shild
+  m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -257,8 +257,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 373fd016cd13e91468114743f264b4f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerType: 0
-  ShildObj: {fileID: 1714081118}
-  shildDuration: 2
-  shildCooldawn: 0.1
-  shildMaxSise: 50
+  powerType: 1
+  ShieldObj: {fileID: 1714081118}
+  shieldDuration: 2
+  shieldCooldown: 0.1
+  shieldMaxSise: 1
+  slowAllPlayerInclude: 0
+  slowSpeedMultiplicator: 0.5
+  fastSpeedMultiplicator: 1.5
+  slowDuration: 5
+  slowCooldown: 5
+  fastAfterSlowDuration: 5
