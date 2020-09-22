@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum Power
 {
@@ -14,8 +15,9 @@ public enum Power
 public class PlayerEntity : MonoBehaviour
 {
     public Power powerType;
-    public Action DoAction;
+    public int healthPoint = 100;
 
+    private Action DoAction;
     private float powerCooldown = 0f;
     private float defaultPlayerSpeed;
 
@@ -23,7 +25,9 @@ public class PlayerEntity : MonoBehaviour
     public Transform ShieldObj;
     public float shieldDuration = 2f;
     public float shieldCooldown = .1f;
-    public float shieldMaxSise = 1f;
+    [Range(30f, 80f)]
+    public float shieldMaxSise = 50f;
+    public float shieldSpawnSpeed = 1f;
 
     private float shieldDurTime = 0f;
 
@@ -55,10 +59,20 @@ public class PlayerEntity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PowerInput();
-        DoAction();
+        if (!GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().inPaused)
+        {
+            PowerInput();
+            DoAction();
+        }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("bullet"))
+            healthPoint -= collision.GetComponent<Bullet>().damage;
+    }
+
+    #region Powers
     public void DoActionVoid()
     {
     }
@@ -105,7 +119,7 @@ public class PlayerEntity : MonoBehaviour
         }
 
         // grow shild
-        ShieldObj.localScale += Vector3.one * Time.deltaTime * shieldMaxSise;
+        ShieldObj.localScale += shieldSpawnSpeed * Vector3.one * Time.deltaTime * shieldMaxSise;
         if (ShieldObj.localScale.x >=shieldMaxSise)
         {
             ShieldObj.localScale = Vector3.one * shieldMaxSise;
@@ -157,4 +171,5 @@ public class PlayerEntity : MonoBehaviour
         }
     }
     #endregion Time Power
+    #endregion Powers
 }

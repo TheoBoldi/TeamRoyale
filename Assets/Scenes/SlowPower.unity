@@ -136,7 +136,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1198609091, guid: d2e420970d4d1ad408ea7a4607b24525, type: 3}
       propertyPath: powerType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1198609091, guid: d2e420970d4d1ad408ea7a4607b24525, type: 3}
       propertyPath: slowAllPlayerInclude
@@ -152,6 +152,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1198609091, guid: d2e420970d4d1ad408ea7a4607b24525, type: 3}
       propertyPath: alsoSlowDownPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714081118, guid: d2e420970d4d1ad408ea7a4607b24525, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714081120, guid: d2e420970d4d1ad408ea7a4607b24525, type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4141840883370220923, guid: d2e420970d4d1ad408ea7a4607b24525,
@@ -243,6 +251,11 @@ PrefabInstance:
       propertyPath: controlMenu
       value: 
       objectReference: {fileID: 1842724521}
+    - target: {fileID: 8713268399843616320, guid: b4133ad5e751f1442ac4f3e9f70fd346,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1699007773}
     - target: {fileID: 8713268399843616322, guid: b4133ad5e751f1442ac4f3e9f70fd346,
         type: 3}
       propertyPath: m_Name
@@ -533,6 +546,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1699007773 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4141840883370220923, guid: d2e420970d4d1ad408ea7a4607b24525,
+    type: 3}
+  m_PrefabInstance: {fileID: 289595832}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1842724520
 PrefabInstance:
   m_ObjectHideFlags: 0
