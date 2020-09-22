@@ -115,7 +115,6 @@ public class FieldOfView : MonoBehaviour {
     public void TargetPlayer()
     {
         var player = GameObject.FindGameObjectWithTag("Player");
-        //transform.right = player.transform.position;
         Vector3 difPos = player.transform.position - transform.position;
         float rotationZ = Mathf.Atan2(difPos.y, difPos.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotationZ);
