@@ -11,12 +11,14 @@ public class Patrol : MonoBehaviour
     [Header("Speed")]
     public float speed = 3f;
 
+    private GameObject detectionZone;
     private int i = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         origin = this.transform;
+        detectionZone = GameObject.Find("DetectionZone");
     }
 
     // Update is called once per frame
@@ -37,5 +39,9 @@ public class Patrol : MonoBehaviour
                 }
             }
         }
+
+        Vector3 difPos = destination[i].position - transform.position;
+        float rotationZ = Mathf.Atan2(difPos.y, difPos.x) * Mathf.Rad2Deg;
+        detectionZone.transform.rotation = Quaternion.Euler(0f, 0f, rotationZ);
     }
 }
