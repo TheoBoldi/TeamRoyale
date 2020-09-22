@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public string mainMenu;
+    public string mainMenuSceneName;
     public void ResumeGame()
     {
         Time.timeScale = 1;
     }
     public void QuitToMenu()
     {
-        SceneManager.LoadScene(mainMenu);
+        SceneManager.LoadScene(mainMenuSceneName);
     }
 }
