@@ -6,7 +6,8 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     public float shootRate = 2f;
-    private float shootTimer;
+    [HideInInspector]
+    public float shootTimer;
 
     public Transform firePoint;
     public GameObject bulletPrefab;
