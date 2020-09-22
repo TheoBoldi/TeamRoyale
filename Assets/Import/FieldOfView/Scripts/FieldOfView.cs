@@ -22,7 +22,10 @@ public class FieldOfView : MonoBehaviour {
     private float fov;
     private float viewDistance;
     private Vector3 origin;
-    private float startingAngle;
+    public float startingAngle;
+    public float maxDistanceToPlayer;
+
+    private bool lookAt = false;
 
     private void Start() {
         mesh = new Mesh();
@@ -30,6 +33,14 @@ public class FieldOfView : MonoBehaviour {
         fov = 90f;
         viewDistance = 4f;
         origin = Vector3.zero;
+    }
+
+    private void Update()
+    {
+        if (lookAt)
+        {
+            TargetPlayer();
+        }
     }
 
     private void LateUpdate() {
@@ -92,11 +103,24 @@ public class FieldOfView : MonoBehaviour {
         this.viewDistance = viewDistance;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             Debug.Log("vue");
+            var player = collision;
+            lookAt = true;
+        }
+    }
+
+    public void TargetPlayer()
+    {
+        var player = GameObject.FindGameObjectWithTag("Player");
+        transform.right = player.transform.position;
+
+        if(Vector3.Distance(this.transform.position, player.transform.position) >= maxDistanceToPlayer)
+        {
+            lookAt = false;
         }
     }
 }
