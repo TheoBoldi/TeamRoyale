@@ -26,7 +26,8 @@ public class PlayerEntity : MonoBehaviour
     private float shieldDurTime = 0f;
 
     [Header("Time Power")]
-    public bool slowAllPlayerInclude = false;
+    public bool alsoSlowDownPlayer = false;
+    public bool alsoSpeedUpPlayer = true;
     [Range(0.1f, 0.9f)]
     public float slowSpeedMultiplicator = 0.5f;
     [Range(1.1f, 5f)]
@@ -112,7 +113,7 @@ public class PlayerEntity : MonoBehaviour
         Debug.Log("Start Time");
         powerCooldown = slowCooldown;
 
-        if (!slowAllPlayerInclude)
+        if (!alsoSlowDownPlayer)
             gameObject.GetComponent<PlayerMovement>().moveSpeed = defaultPlayerSpeed * (1 / slowSpeedMultiplicator);
         Time.timeScale = slowSpeedMultiplicator;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
@@ -125,8 +126,10 @@ public class PlayerEntity : MonoBehaviour
         slowDurTime -= Time.unscaledDeltaTime;
         if (slowDurTime <= 0f)
         {
-            if (!slowAllPlayerInclude)
+            if (!alsoSpeedUpPlayer)
                 gameObject.GetComponent<PlayerMovement>().moveSpeed = defaultPlayerSpeed * (fastSpeedMultiplicator - 1);
+            else
+                gameObject.GetComponent<PlayerMovement>().moveSpeed = defaultPlayerSpeed;
             Time.timeScale = fastSpeedMultiplicator;
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
             fastDurTime = fastAfterSlowDuration;
@@ -139,8 +142,7 @@ public class PlayerEntity : MonoBehaviour
         fastDurTime -= Time.unscaledDeltaTime;
         if (fastDurTime <= 0f)
         {
-            if (!slowAllPlayerInclude)
-                gameObject.GetComponent<PlayerMovement>().moveSpeed = defaultPlayerSpeed;
+            gameObject.GetComponent<PlayerMovement>().moveSpeed = defaultPlayerSpeed;
             Time.timeScale = 1;
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
             DoAction = DoActionVoid;
