@@ -1,18 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public string mainMenuSceneName;
+    public void ResumeGame()
     {
-        
+        Time.timeScale = 1;
     }
-
-    // Update is called once per frame
-    void Update()
+    public void QuitToMenu()
     {
-        
+        SceneManager.LoadScene(mainMenuSceneName);
     }
 }
