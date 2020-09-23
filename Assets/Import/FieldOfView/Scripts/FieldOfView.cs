@@ -23,16 +23,18 @@ public class FieldOfView : MonoBehaviour {
     public float totalAngle;
     public float maxDistanceToPlayer;
     private Vector3 origin;
-    [HideInInspector]
     public float startingAngle;
 
     [HideInInspector]
     public bool lookAt = false;
 
+    private Vector3 originalRot;
+
     private void Start() {
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
         origin = Vector3.zero;
+        originalRot = this.transform.rotation.eulerAngles;
     }
 
     private void Update()
@@ -108,7 +110,10 @@ public class FieldOfView : MonoBehaviour {
         if (collision.CompareTag("Player"))
         {
             GetComponentInParent<Turret>().enabled = true;
-            GetComponentInParent<Patrol>().enabled = false;
+            if (!this.gameObject.transform.parent.parent.name.Contains("immobile"))
+            {
+                GetComponentInParent<Patrol>().enabled = false;
+            }
             lookAt = true;
         }
     }
@@ -123,7 +128,14 @@ public class FieldOfView : MonoBehaviour {
         if (Vector3.Distance(this.transform.position, player.transform.position) >= maxDistanceToPlayer)
         {
             GetComponentInParent<Turret>().enabled = false;
-            GetComponentInParent<Patrol>().enabled = true;
+            if (!this.gameObject.transform.parent.parent.name.Contains("immobile"))
+            {
+                GetComponentInParent<Patrol>().enabled = true;
+            }
+            else if(this.gameObject.transform.parent.parent.name.Contains("immobile"))
+            {
+                transform.eulerAngles = new Vector3(originalRot.x, originalRot.y, originalRot.z);
+            }
             lookAt = false;
         }
     }
