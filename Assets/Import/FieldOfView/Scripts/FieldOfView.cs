@@ -23,6 +23,7 @@ public class FieldOfView : MonoBehaviour {
     public float totalAngle;
     public float maxDistanceToPlayer;
     private Vector3 origin;
+    [HideInInspector]
     public float startingAngle;
 
     [HideInInspector]

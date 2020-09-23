@@ -35,18 +35,21 @@ using System.Collections.Generic;
 [RequireComponent(typeof(EdgeCollider2D))]
 public class ArcCollider2D : MonoBehaviour {
 
-    [Range(1, 50)]
+    [Range(1, 500)]
     public float radius = 3;
 
     [Range(10, 360)]
     public int totalAngle = 360;
 
+    [HideInInspector]
     [Range(10, 90)]
     public int smoothness = 24;
 
+    [HideInInspector]
     [Range(0, 360)]
     public int offsetRotation = 0;
 
+    [HideInInspector]
     [Header("Let there be Pizza")]
     public bool pizzaSlice;
     
