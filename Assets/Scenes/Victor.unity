@@ -257,7 +257,7 @@ MonoBehaviour:
   firePoint: {fileID: 451620214}
   bulletPrefab: {fileID: 3307191254588076431, guid: 971bdc6d817873a44b56a2569c333506,
     type: 3}
-  bulletForce: 5
+  bulletForce: 22
 --- !u!212 &641438303
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -678,6 +678,23 @@ PrefabInstance:
     - target: {fileID: 1198609091, guid: d2e420970d4d1ad408ea7a4607b24525, type: 3}
       propertyPath: powerType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1198609091, guid: d2e420970d4d1ad408ea7a4607b24525, type: 3}
+      propertyPath: shieldMaxSise
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1198609091, guid: d2e420970d4d1ad408ea7a4607b24525, type: 3}
+      propertyPath: shieldCooldown
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714081119, guid: d2e420970d4d1ad408ea7a4607b24525, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4141840883370220920, guid: d2e420970d4d1ad408ea7a4607b24525,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4141840883370220922, guid: d2e420970d4d1ad408ea7a4607b24525,
         type: 3}
