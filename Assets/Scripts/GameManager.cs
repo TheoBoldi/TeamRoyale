@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject endLevel;
 
     [Header("ObjectsToCollect")]
-
+    public GameObject[] objects;
 
     [HideInInspector]
     public bool inPaused = false;

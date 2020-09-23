@@ -177,8 +177,6 @@ public class PlayerEntity : MonoBehaviour
         {
             transform.localScale = scaleObjectif;
             activeGrowthPhasesNumber--;
-            /*shrinkDurTime += shrinkDuration;
-            activeShrinkPhasesNumber++;*/
             stayGrowthTime += stayGrowthDuration;
         }
     }
