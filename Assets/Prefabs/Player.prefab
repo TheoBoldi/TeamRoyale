@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1714081118}
   - component: {fileID: 1714081119}
   - component: {fileID: 1714081120}
+  - component: {fileID: 4453490856842430254}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
@@ -98,6 +99,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.085
+--- !u!114 &4453490856842430254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714081117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f22ce3e673d6f3408bb3a1c316e905c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrigger: 0
 --- !u!1 &4141840883370220923
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +229,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -258,12 +272,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerType: 1
-  healthPoint: 100
+  healthPoint: 1
+  powerCooldown: 0
   ShieldObj: {fileID: 1714081118}
   shieldDuration: 1
   shieldCooldown: 3
   shieldMaxSise: 50
   shieldSpawnSpeed: 5
+  cooldownResetWhenBulletIsDetected: 1
+  growthDurationForEachBulletDetected: 1
+  shrinkDuration: 0.3
+  maxGrowthMultiplicator: 1.5
+  growthPhaseNumber: 1
   alsoSlowDownPlayer: 1
   alsoSpeedUpPlayer: 1
   slowSpeedPlayerMultiplicator: 0.9
