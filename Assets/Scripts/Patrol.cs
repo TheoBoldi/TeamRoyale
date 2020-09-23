@@ -5,8 +5,8 @@ using UnityEngine;
 public class Patrol : MonoBehaviour
 {
     private Transform origin;
-    [Header("Destination points")]
-    private List<Transform> destination;
+    [HideInInspector]
+    public List<Transform> destination;
     private GameObject destinationList;
 
     [Header("Speed")]
