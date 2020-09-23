@@ -887,8 +887,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 15
-  smoothness: 24
   totalAngle: 90
+  smoothness: 24
   offsetRotation: 315
   pizzaSlice: 1
 --- !u!4 &4583381489628983406
@@ -920,9 +920,10 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  viewDistance: 15
-  startingAngle: 45
+  radius: 15
+  totalAngle: 90
   maxDistanceToPlayer: 25
+  startingAngle: 45
 --- !u!4 &7505138497486994233
 Transform:
   m_ObjectHideFlags: 0

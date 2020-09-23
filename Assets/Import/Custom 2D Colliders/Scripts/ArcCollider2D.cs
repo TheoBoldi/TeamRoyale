@@ -35,13 +35,14 @@ using System.Collections.Generic;
 [RequireComponent(typeof(EdgeCollider2D))]
 public class ArcCollider2D : MonoBehaviour {
 
-    [Range(1, 25)]
+    [Range(1, 50)]
     public float radius = 3;
-    [Range(10,90)]
-    public int smoothness = 24;
 
     [Range(10, 360)]
     public int totalAngle = 360;
+
+    [Range(10, 90)]
+    public int smoothness = 24;
 
     [Range(0, 360)]
     public int offsetRotation = 0;
