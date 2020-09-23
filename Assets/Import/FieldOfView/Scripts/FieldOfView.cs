@@ -20,7 +20,7 @@ public class FieldOfView : MonoBehaviour {
     [SerializeField] private LayerMask layerMask;
     private Mesh mesh;
     private float fov;
-    private float viewDistance;
+    public float viewDistance;
     private Vector3 origin;
     public float startingAngle;
     public float maxDistanceToPlayer;
@@ -31,7 +31,6 @@ public class FieldOfView : MonoBehaviour {
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
         fov = 90f;
-        viewDistance = 4f;
         origin = Vector3.zero;
     }
 
@@ -107,8 +106,8 @@ public class FieldOfView : MonoBehaviour {
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("vue");
-            var player = collision;
+            GetComponentInParent<Turret>().enabled = true;
+            GetComponentInParent<Patrol>().enabled = false;
             lookAt = true;
         }
     }
@@ -116,10 +115,14 @@ public class FieldOfView : MonoBehaviour {
     public void TargetPlayer()
     {
         var player = GameObject.FindGameObjectWithTag("Player");
-        transform.right = player.transform.position;
+        Vector3 difPos = player.transform.position - transform.position;
+        float rotationZ = Mathf.Atan2(difPos.y, difPos.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, rotationZ);
 
-        if(Vector3.Distance(this.transform.position, player.transform.position) >= maxDistanceToPlayer)
+        if (Vector3.Distance(this.transform.position, player.transform.position) >= maxDistanceToPlayer)
         {
+            GetComponentInParent<Turret>().enabled = false;
+            GetComponentInParent<Patrol>().enabled = true;
             lookAt = false;
         }
     }
