@@ -281,6 +281,7 @@ MonoBehaviour:
   shieldSpawnSpeed: 5
   cooldownResetWhenBulletIsDetected: 1
   growthDurationForEachBulletDetected: 1
+  stayGrowthDuration: 2
   shrinkDuration: 0.3
   maxGrowthMultiplicator: 1.5
   growthPhaseNumber: 1
