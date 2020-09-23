@@ -32,6 +32,7 @@ public class PlayerEntity : MonoBehaviour
     public float shieldSpawnSpeed = 1f;
     public bool cooldownResetWhenBulletIsDetected = true;
     public float growthDurationForEachBulletDetected = 2f;
+    public float stayGrowthDuration = 1f;
     public float shrinkDuration = 0.5f;
     [Range(1.001f, 2f)]
     public float maxGrowthMultiplicator = 1.3f;
@@ -41,6 +42,7 @@ public class PlayerEntity : MonoBehaviour
     private int activeShrinkPhasesNumber = 0;
     private float shieldDurTime = 0f;
     private float growthDurTime = 0f;
+    private float stayGrowthTime = 0f;
     private float shrinkDurTime = 0f;
 
     [Header("Time Power")]
@@ -80,6 +82,7 @@ public class PlayerEntity : MonoBehaviour
             PowerInput();
             DoAction();
             GrowthPlayer();
+            StayGrowth();
             ShrinkPlayer();
         }
     }
@@ -174,6 +177,22 @@ public class PlayerEntity : MonoBehaviour
         {
             transform.localScale = scaleObjectif;
             activeGrowthPhasesNumber--;
+            /*shrinkDurTime += shrinkDuration;
+            activeShrinkPhasesNumber++;*/
+            stayGrowthTime += stayGrowthDuration;
+        }
+    }
+
+    public void StayGrowth()
+    {
+        if (stayGrowthTime <= 0f)
+            return;
+
+        stayGrowthTime -= Time.deltaTime;
+
+        if (stayGrowthTime <= 0f)
+        {
+            stayGrowthTime = 0f;
             shrinkDurTime += shrinkDuration;
             activeShrinkPhasesNumber++;
         }
