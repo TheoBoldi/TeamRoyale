@@ -19,18 +19,17 @@ public class FieldOfView : MonoBehaviour {
 
     [SerializeField] private LayerMask layerMask;
     private Mesh mesh;
-    private float fov;
-    public float viewDistance;
+    public float radius;
+    public float totalAngle;
+    public float maxDistanceToPlayer;
     private Vector3 origin;
     public float startingAngle;
-    public float maxDistanceToPlayer;
 
     private bool lookAt = false;
 
     private void Start() {
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
-        fov = 90f;
         origin = Vector3.zero;
     }
 
@@ -45,7 +44,7 @@ public class FieldOfView : MonoBehaviour {
     private void LateUpdate() {
         int rayCount = 50;
         float angle = startingAngle;
-        float angleIncrease = fov / rayCount;
+        float angleIncrease = totalAngle / rayCount;
 
         Vector3[] vertices = new Vector3[rayCount + 1 + 1];
         Vector2[] uv = new Vector2[vertices.Length];
@@ -57,10 +56,10 @@ public class FieldOfView : MonoBehaviour {
         int triangleIndex = 0;
         for (int i = 0; i <= rayCount; i++) {
             Vector3 vertex;
-            RaycastHit2D raycastHit2D = Physics2D.Raycast(origin, UtilsClass.GetVectorFromAngle(angle), viewDistance, layerMask);
+            RaycastHit2D raycastHit2D = Physics2D.Raycast(origin, UtilsClass.GetVectorFromAngle(angle), radius, layerMask);
             if (raycastHit2D.collider == null) {
                 // No hit
-                vertex = origin + UtilsClass.GetVectorFromAngle(angle) * viewDistance;
+                vertex = origin + UtilsClass.GetVectorFromAngle(angle) * radius;
             } else {
                 // Hit object
                 vertex = raycastHit2D.point;
@@ -91,15 +90,15 @@ public class FieldOfView : MonoBehaviour {
     }
 
     public void SetAimDirection(Vector3 aimDirection) {
-        startingAngle = UtilsClass.GetAngleFromVectorFloat(aimDirection) + fov / 2f;
+        startingAngle = UtilsClass.GetAngleFromVectorFloat(aimDirection) + totalAngle / 2f;
     }
 
     public void SetFoV(float fov) {
-        this.fov = fov;
+        this.totalAngle = fov;
     }
 
     public void SetViewDistance(float viewDistance) {
-        this.viewDistance = viewDistance;
+        this.radius = viewDistance;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -125,5 +124,10 @@ public class FieldOfView : MonoBehaviour {
             GetComponentInParent<Patrol>().enabled = true;
             lookAt = false;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(this.transform.position, maxDistanceToPlayer);
     }
 }
