@@ -25,7 +25,8 @@ public class FieldOfView : MonoBehaviour {
     private Vector3 origin;
     public float startingAngle;
 
-    private bool lookAt = false;
+    [HideInInspector]
+    public bool lookAt = false;
 
     private void Start() {
         mesh = new Mesh();
