@@ -14,9 +14,6 @@ public class GameManager : MonoBehaviour
     [Header("Player")]
     public GameObject player;
 
-    [Header("EndLevel")]
-    public GameObject endLevel;
-
     [Header("ObjectsToCollect")]
     public GameObject[] objects;
 
@@ -44,18 +41,12 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // TO DELETE -> JUST FOR TEST
-        else if (Input.GetKeyDown(KeyCode.V))
+        if (player.GetComponent<PlayerGoals>().levelFinished)
         {
             if (victoryPanel.gameObject.activeInHierarchy == false)
             {
                 victoryPanel.gameObject.SetActive(true);
                 Time.timeScale = 0;
-            }
-            else
-            {
-                victoryPanel.gameObject.SetActive(false);
-                Time.timeScale = 1;
             }
         }
 

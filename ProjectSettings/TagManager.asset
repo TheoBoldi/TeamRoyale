@@ -7,6 +7,7 @@ TagManager:
   - Obstacle
   - bullet
   - Shield
+  - Object
   layers:
   - Default
   - TransparentFX
