@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public GameObject particle;
     private float timer = 10f;
+    public int damage = 1;
 
     private void Update()
     {
