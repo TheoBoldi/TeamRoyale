@@ -9,12 +9,11 @@ public class AlertZone : MonoBehaviour
     private GameObject red;
     private FieldOfView fov;
 
-    private bool warning = false;
     private void Start()
     {
         player = GameObject.Find("Player");
-        yellow = GameObject.Find("exclamation_point").transform.GetChild(0).gameObject;
-        red = GameObject.Find("exclamation_point").transform.GetChild(1).gameObject;
+        yellow = transform.parent.parent.GetChild(2).GetChild(0).gameObject;
+        red = transform.parent.parent.GetChild(2).GetChild(1).gameObject;
         fov = GetComponentInParent<FieldOfView>();
     }
 
@@ -38,8 +37,6 @@ public class AlertZone : MonoBehaviour
             if (!fov.lookAt)
             {
                 yellow.SetActive(true);
-                yellow.GetComponent<SpriteRenderer>().color = Color.white;
-                warning = true;
             }
         }
     }
@@ -49,7 +46,6 @@ public class AlertZone : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             yellow.SetActive(false);
-            warning = false;
         }
     }
 }
