@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8713268399843616320}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,3 +47,5 @@ MonoBehaviour:
   victoryPanel: {fileID: 0}
   defeatPanel: {fileID: 0}
   controlMenu: {fileID: 0}
+  player: {fileID: 0}
+  inPaused: 0

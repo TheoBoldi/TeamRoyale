@@ -5,10 +5,23 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Menus")]
     public GameObject pauseMenu;
     public GameObject victoryPanel;
     public GameObject defeatPanel;
     public GameObject controlMenu;
+
+    [Header("Player")]
+    public GameObject player;
+
+    [Header("EndLevel")]
+    public GameObject endLevel;
+
+    [Header("ObjectsToCollect")]
+
+
+    [HideInInspector]
+    public bool inPaused = false;
 
     private void Update()
     {
@@ -19,11 +32,13 @@ public class GameManager : MonoBehaviour
         {
             if (pauseMenu.gameObject.activeInHierarchy == false)
             {
+                inPaused = true;
                 pauseMenu.gameObject.SetActive(true);
                 Time.timeScale = 0;
             }
             else
             {
+                inPaused = false;
                 pauseMenu.gameObject.SetActive(false);
                 Time.timeScale = 1;
             }
@@ -44,18 +59,12 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // TO DELETE -> JUST FOR TEST
-        else if (Input.GetKeyDown(KeyCode.D))
+        if (player.GetComponent<PlayerEntity>().healthPoint <= 0)
         {
             if (defeatPanel.gameObject.activeInHierarchy == false)
             {
                 defeatPanel.gameObject.SetActive(true);
                 Time.timeScale = 0;
-            }
-            else
-            {
-                defeatPanel.gameObject.SetActive(false);
-                Time.timeScale = 1;
             }
         }
     }

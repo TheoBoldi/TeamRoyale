@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public GameObject particle;
     private float timer = 10f;
+    public int damage = 1;
 
     private void Update()
     {
@@ -33,6 +34,9 @@ public class Bullet : MonoBehaviour
             tmp.transform.localScale = new Vector3(1, 1, 1);
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.CompareTag("Shield"))
+            Destroy(gameObject);
     }
 
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum Power
 {
@@ -14,18 +15,33 @@ public enum Power
 public class PlayerEntity : MonoBehaviour
 {
     public Power powerType;
-    public Action DoAction;
+    public int healthPoint = 1;
+    [HideInInspector]
+    public float powerCooldown = 0f;
 
-    private float powerCooldown = 0f;
+    private Action DoAction;
     private float defaultPlayerSpeed;
+    private Vector3 defaultPlayerScale;
 
     [Header("Shield Power")]
     public Transform ShieldObj;
     public float shieldDuration = 2f;
     public float shieldCooldown = .1f;
-    public float shieldMaxSise = 1f;
+    [Range(30f, 80f)]
+    public float shieldMaxSise = 50f;
+    public float shieldSpawnSpeed = 1f;
+    public bool cooldownResetWhenBulletIsDetected = true;
+    public float growthDurationForEachBulletDetected = 2f;
+    public float shrinkDuration = 0.5f;
+    [Range(1.001f, 2f)]
+    public float maxGrowthMultiplicator = 1.3f;
+    public int growthPhaseNumber = 3;
 
+    private int activeGrowthPhasesNumber = 0;
+    private int activeShrinkPhasesNumber = 0;
     private float shieldDurTime = 0f;
+    private float growthDurTime = 0f;
+    private float shrinkDurTime = 0f;
 
     [Header("Time Power")]
     public bool alsoSlowDownPlayer = false;
@@ -45,20 +61,42 @@ public class PlayerEntity : MonoBehaviour
     private float slowDurTime = 0f;
     private float fastDurTime = 0f;
 
+    private void Awake()
+    {
+        defaultPlayerSpeed = gameObject.GetComponent<PlayerMovement>().moveSpeed;
+        defaultPlayerScale = transform.localScale;
+    }
     private void Start()
     {
         DoAction = DoActionVoid;
         ShieldObj.localScale = Vector3.zero;
-        defaultPlayerSpeed = gameObject.GetComponent<PlayerMovement>().moveSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        PowerInput();
-        DoAction();
+        if (!GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().inPaused)
+        {
+            PowerInput();
+            DoAction();
+            GrowthPlayer();
+            ShrinkPlayer();
+        }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("bullet") && GetComponentInChildren<Shield>().isTrigger)
+        {
+            if (cooldownResetWhenBulletIsDetected)
+                gameObject.GetComponentInParent<PlayerEntity>().powerCooldown = 0f;
+            GetComponentInChildren<Shield>().isTrigger = false;
+        }
+        else if (collision.CompareTag("bullet"))
+            healthPoint -= collision.GetComponent<Bullet>().damage;
+    }
+
+    #region Powers
     public void DoActionVoid()
     {
     }
@@ -88,9 +126,13 @@ public class PlayerEntity : MonoBehaviour
     #region Shild Power
     public void StartShield()
     {
-        Debug.Log("Start Shield");
         powerCooldown = shieldCooldown;
         shieldDurTime = shieldDuration;
+        if (activeGrowthPhasesNumber < growthPhaseNumber)
+        {
+            growthDurTime += growthDurationForEachBulletDetected;
+            activeGrowthPhasesNumber++;
+        }
         DoAction = DoShield;
     }
 
@@ -105,10 +147,57 @@ public class PlayerEntity : MonoBehaviour
         }
 
         // grow shild
-        ShieldObj.localScale += Vector3.one * Time.deltaTime * shieldMaxSise;
+        ShieldObj.localScale += shieldSpawnSpeed * Vector3.one * Time.deltaTime * shieldMaxSise;
         if (ShieldObj.localScale.x >=shieldMaxSise)
         {
             ShieldObj.localScale = Vector3.one * shieldMaxSise;
+        }
+    }
+
+    public void GrowthPlayer()
+    {
+        if (growthDurTime <= 0f || activeGrowthPhasesNumber == 0)
+            return;
+
+        growthDurTime -= Time.deltaTime;
+
+        Vector3 scaleObjectif = defaultPlayerScale * (1 + ((maxGrowthMultiplicator - 1) / growthPhaseNumber * activeGrowthPhasesNumber));
+        if (growthDurTime <= 0f)
+        {
+            growthDurTime = 0f;
+            transform.localScale = scaleObjectif;
+        }
+        else
+            transform.localScale = Vector3.Lerp(transform.localScale, scaleObjectif, Time.deltaTime / growthDurTime);
+        
+        if (transform.localScale.x >= scaleObjectif.x)
+        {
+            transform.localScale = scaleObjectif;
+            activeGrowthPhasesNumber--;
+            shrinkDurTime += shrinkDuration;
+            activeShrinkPhasesNumber++;
+        }
+    }
+
+    public void ShrinkPlayer()
+    {
+        if (shrinkDurTime <= 0f || activeShrinkPhasesNumber == 0)
+            return;
+
+        shrinkDurTime -= Time.deltaTime;
+
+        if (shrinkDurTime <= 0f)
+        {
+            shrinkDurTime = 0f;
+            transform.localScale = defaultPlayerScale;
+        }
+        else
+            transform.localScale = Vector3.Lerp(transform.localScale, defaultPlayerScale, Time.deltaTime / shrinkDurTime);
+
+        if (transform.localScale.x <= defaultPlayerScale.x)
+        {
+            transform.localScale = defaultPlayerScale;
+            activeShrinkPhasesNumber--;
         }
     }
     #endregion Shild Power
@@ -116,7 +205,6 @@ public class PlayerEntity : MonoBehaviour
     #region Time Power
     public void StartTime()
     {
-        Debug.Log("Start Time");
         powerCooldown = slowCooldown;
 
         if (!alsoSlowDownPlayer)
@@ -157,4 +245,5 @@ public class PlayerEntity : MonoBehaviour
         }
     }
     #endregion Time Power
+    #endregion Powers
 }

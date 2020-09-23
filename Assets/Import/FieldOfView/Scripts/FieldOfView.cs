@@ -23,9 +23,11 @@ public class FieldOfView : MonoBehaviour {
     public float totalAngle;
     public float maxDistanceToPlayer;
     private Vector3 origin;
+    [HideInInspector]
     public float startingAngle;
 
-    private bool lookAt = false;
+    [HideInInspector]
+    public bool lookAt = false;
 
     private void Start() {
         mesh = new Mesh();

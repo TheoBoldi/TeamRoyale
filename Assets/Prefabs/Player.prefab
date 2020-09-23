@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1714081118}
   - component: {fileID: 1714081119}
   - component: {fileID: 1714081120}
+  - component: {fileID: 4453490856842430254}
   m_Layer: 0
   m_Name: Shield
-  m_TagString: Untagged
+  m_TagString: Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,14 +71,14 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.35248306, g: 0.8396226, b: 0.38570023, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.2, y: 0.2}
-  m_AdaptiveModeThreshold: 0.5
+  m_AdaptiveModeThreshold: 0.414
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
@@ -92,12 +93,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.085
+--- !u!114 &4453490856842430254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714081117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f22ce3e673d6f3408bb3a1c316e905c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrigger: 0
 --- !u!1 &4141840883370220923
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,8 +122,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4141840883370220927}
   - component: {fileID: 4141840883370220920}
-  - component: {fileID: 4141840883370220922}
   - component: {fileID: 4141840883370220921}
+  - component: {fileID: 1198609095}
+  - component: {fileID: 4141840883370220922}
+  - component: {fileID: 1198609091}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -126,7 +142,7 @@ Transform:
   m_GameObject: {fileID: 4141840883370220923}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1714081118}
   m_Father: {fileID: 0}
@@ -170,7 +186,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: a55d391c02125a244b7db2fffa986bb5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -182,20 +198,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4141840883370220922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4141840883370220923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 594c3d323242e6f4d960b0685591b456, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  rb: {fileID: 4141840883370220921}
 --- !u!50 &4141840883370220921
 Rigidbody2D:
   serializedVersion: 4
@@ -217,3 +219,77 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!61 &1198609095
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4141840883370220923}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5, y: 5}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.45, y: 4.55}
+  m_EdgeRadius: 0
+--- !u!114 &4141840883370220922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4141840883370220923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594c3d323242e6f4d960b0685591b456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 20
+  rb: {fileID: 4141840883370220921}
+--- !u!114 &1198609091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4141840883370220923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373fd016cd13e91468114743f264b4f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerType: 1
+  healthPoint: 1
+  powerCooldown: 0
+  ShieldObj: {fileID: 1714081118}
+  shieldDuration: 1
+  shieldCooldown: 3
+  shieldMaxSise: 50
+  shieldSpawnSpeed: 5
+  cooldownResetWhenBulletIsDetected: 1
+  growthDurationForEachBulletDetected: 1
+  shrinkDuration: 0.3
+  maxGrowthMultiplicator: 1.5
+  growthPhaseNumber: 1
+  alsoSlowDownPlayer: 1
+  alsoSpeedUpPlayer: 1
+  slowSpeedPlayerMultiplicator: 0.9
+  fastSpeedPlayerMultiplicator: 1.5
+  slowSpeedMultiplicator: 0.5
+  fastSpeedMultiplicator: 1.5
+  slowDuration: 5
+  slowCooldown: 5
+  fastAfterSlowDuration: 5

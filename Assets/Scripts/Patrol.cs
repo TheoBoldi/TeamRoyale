@@ -5,8 +5,9 @@ using UnityEngine;
 public class Patrol : MonoBehaviour
 {
     private Transform origin;
-    [Header("Destination points")]
+    [HideInInspector]
     public List<Transform> destination;
+    private GameObject destinationList;
 
     [Header("Speed")]
     public float speed = 3f;
@@ -18,7 +19,13 @@ public class Patrol : MonoBehaviour
     void Start()
     {
         origin = this.transform;
-        detectionZone = GameObject.Find("DetectionZone");
+        detectionZone = transform.GetChild(1).gameObject;
+        destinationList = transform.parent.GetChild(1).gameObject;
+
+        for(int i = 0; i < destinationList.transform.childCount; i++) 
+        {
+            destination.Add(destinationList.transform.GetChild(i));
+        }
     }
 
     // Update is called once per frame
