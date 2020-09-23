@@ -34,7 +34,9 @@ public class Bullet : MonoBehaviour
             tmp.transform.localScale = new Vector3(1, 1, 1);
             Destroy(gameObject);
         }
-        Destroy(gameObject);
+
+        if (collision.gameObject.CompareTag("Shield"))
+            Destroy(gameObject);
     }
 
 }

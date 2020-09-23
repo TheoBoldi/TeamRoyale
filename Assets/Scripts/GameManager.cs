@@ -14,10 +14,10 @@ public class GameManager : MonoBehaviour
     [Header("Player")]
     public GameObject player;
 
-    /*[Header("EndLevel")]
+    [Header("EndLevel")]
     public GameObject endLevel;
 
-    [Header("ObjectsToCollect")]*/
+    [Header("ObjectsToCollect")]
 
 
     [HideInInspector]
