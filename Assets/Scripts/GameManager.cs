@@ -14,6 +14,12 @@ public class GameManager : MonoBehaviour
     [Header("Player")]
     public GameObject player;
 
+    /*[Header("EndLevel")]
+    public GameObject endLevel;
+
+    [Header("ObjectsToCollect")]*/
+
+
     [HideInInspector]
     public bool inPaused = false;
 
@@ -53,7 +59,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        else if (player.GetComponent<PlayerEntity>().healthPoint <= 0)
+        if (player.GetComponent<PlayerEntity>().healthPoint <= 0)
         {
             if (defeatPanel.gameObject.activeInHierarchy == false)
             {
