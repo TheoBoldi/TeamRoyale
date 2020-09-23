@@ -45,7 +45,6 @@ public class ArcCollider2D : MonoBehaviour {
     [Range(10, 90)]
     public int smoothness = 24;
 
-    [HideInInspector]
     [Range(0, 360)]
     public int offsetRotation = 0;
 
