@@ -1485,6 +1485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b373d5b9f3d9344ae47ebc8a51594e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destination: []
   speed: 10
 --- !u!114 &1540983171
 MonoBehaviour:
@@ -2054,6 +2055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b373d5b9f3d9344ae47ebc8a51594e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destination: []
   speed: 10
 --- !u!1 &4583381489628983392
 GameObject:
