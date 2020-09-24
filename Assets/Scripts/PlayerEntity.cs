@@ -63,6 +63,8 @@ public class PlayerEntity : MonoBehaviour
     private float slowDurTime = 0f;
     private float fastDurTime = 0f;
 
+    private Slider cooldownBar;
+
     private void Awake()
     {
         defaultPlayerSpeed = gameObject.GetComponent<PlayerMovement>().moveSpeed;
@@ -70,6 +72,7 @@ public class PlayerEntity : MonoBehaviour
     }
     private void Start()
     {
+        cooldownBar = GetComponentInChildren<Slider>();
         DoAction = DoActionVoid;
         ShieldObj.localScale = Vector3.zero;
     }
@@ -85,6 +88,8 @@ public class PlayerEntity : MonoBehaviour
             StayGrowth();
             ShrinkPlayer();
         }
+
+        cooldownBar.value = - powerCooldown;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
