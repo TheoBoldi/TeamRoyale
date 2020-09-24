@@ -15,6 +15,8 @@ public class Patrol : MonoBehaviour
     private GameObject detectionZone;
     private int i = 0;
 
+    public Animator ennemycontroller;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,30 @@ public class Patrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (origin.transform.position.x < destination[i].transform.position.x - 0.5f)
+        {
+            ennemycontroller.SetInteger("leftrightint", 1);
+            ennemycontroller.SetInteger("updownint", 0);
+        }
+
+        if (origin.transform.position.x > destination[i].transform.position.x + 0.5f)
+        {
+            ennemycontroller.SetInteger("leftrightint", -1);
+            ennemycontroller.SetInteger("updownint", 0);
+        }
+
+        if (origin.transform.position.y > destination[i].transform.position.y + 0.5f)
+        {
+            ennemycontroller.SetInteger("updownint", -1);
+            ennemycontroller.SetInteger("leftrightint", 0);
+        }
+
+        if (origin.transform.position.y < destination[i].transform.position.y - 0.5f)
+        {
+            ennemycontroller.SetInteger("updownint", 1);
+            ennemycontroller.SetInteger("leftrightint", 0);
+        }
+
         if (speed > 0)
         {
             float ratio = Time.deltaTime * speed;

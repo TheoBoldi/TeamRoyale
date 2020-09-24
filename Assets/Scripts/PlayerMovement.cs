@@ -48,6 +48,15 @@ public class PlayerMovement : MonoBehaviour
             playercontroller.SetInteger("leftrightint", 0);
         }
 
+        if (movement.x == 0 )
+        {
+            playercontroller.SetInteger("leftrightint", 0);
+        }
+
+        if (movement.y == 0)
+        {
+            playercontroller.SetInteger("updownint", 0);
+        }
     }
 
     private void FixedUpdate()

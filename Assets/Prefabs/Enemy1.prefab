@@ -556,6 +556,7 @@ GameObject:
   - component: {fileID: 3334327117149570320}
   - component: {fileID: 3334327117149570351}
   - component: {fileID: 3334327117149570348}
+  - component: {fileID: 4143367098033522531}
   m_Layer: 0
   m_Name: GuardTourelle
   m_TagString: Untagged
@@ -662,6 +663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destination: []
   speed: 10
+  ennemycontroller: {fileID: 4143367098033522531}
 --- !u!61 &3334327117149570348
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -688,6 +690,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.4640274, y: 4.843558}
   m_EdgeRadius: 0
+--- !u!95 &4143367098033522531
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3334327117149570323}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 03c6f24f6994a9f499e2baa13aa6d769, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3334327117482015291
 GameObject:
   m_ObjectHideFlags: 0
