@@ -73,6 +73,8 @@ public class PlayerEntity : MonoBehaviour
 
     private Slider cooldownBar;
 
+    public Animator sab;
+
     private void Awake()
     {
         defaultPlayerSpeed = gameObject.GetComponent<PlayerMovement>().moveSpeed;
@@ -255,6 +257,7 @@ public class PlayerEntity : MonoBehaviour
     public void StartTime()
     {
         SoundManager.instance.SlowTime();
+        sab.SetInteger("feedsab", 1);
         powerCooldown = slowCooldown;
 
         if (!alsoSlowDownPlayer)
@@ -280,6 +283,7 @@ public class PlayerEntity : MonoBehaviour
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
             fastDurTime = fastAfterSlowDuration;
             SoundManager.instance.SpeedTime();
+            sab.SetInteger("feedsab", 0);
             DoAction = DoFastTime;
         }
     }
