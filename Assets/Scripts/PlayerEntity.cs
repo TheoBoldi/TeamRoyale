@@ -69,9 +69,13 @@ public class PlayerEntity : MonoBehaviour
     public float invisibilityCooldown = 6f;
 
     private float invisibilityDurTime = 0f;
+    private float lerpTime = 1f;
+    private bool isInvisible = false;
     public List<FieldOfView> enemies;
 
     private Slider cooldownBar;
+
+    public Animator sab;
 
     private void Awake()
     {
@@ -92,6 +96,17 @@ public class PlayerEntity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isInvisible)
+        {
+            lerpTime -= Time.deltaTime;
+            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, lerpTime);
+        }
+        else
+        {
+            lerpTime += Time.deltaTime;
+            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, lerpTime);
+        }
+
         if (!GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().inPaused)
         {
             PowerInput();
@@ -255,6 +270,7 @@ public class PlayerEntity : MonoBehaviour
     public void StartTime()
     {
         SoundManager.instance.SlowTime();
+        sab.SetInteger("feedsab", 1);
         powerCooldown = slowCooldown;
 
         if (!alsoSlowDownPlayer)
@@ -280,6 +296,7 @@ public class PlayerEntity : MonoBehaviour
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
             fastDurTime = fastAfterSlowDuration;
             SoundManager.instance.SpeedTime();
+            sab.SetInteger("feedsab", 0);
             DoAction = DoFastTime;
         }
     }
@@ -303,7 +320,9 @@ public class PlayerEntity : MonoBehaviour
         SoundManager.instance.Invisibility();
         powerCooldown = invisibilityCooldown;
         invisibilityDurTime = invisibilityDuration;
-        GetComponent<SpriteRenderer>().color = Color.clear;
+        lerpTime = 1f;
+        isInvisible = true;
+        GetComponent<PlayerMovement>().moveSpeed = -GetComponent<PlayerMovement>().moveSpeed;
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
         gameObject.tag = "Untagged";
         for(int i = 0; i < enemies.Count; i++)
@@ -321,7 +340,10 @@ public class PlayerEntity : MonoBehaviour
         invisibilityDurTime -= Time.deltaTime;
         if(invisibilityDurTime <= 0f)
         {
-            GetComponent<SpriteRenderer>().color = Color.white;
+            SoundManager.instance.Visibility();
+            lerpTime = 0;
+            isInvisible = false;
+            GetComponent<PlayerMovement>().moveSpeed = -GetComponent<PlayerMovement>().moveSpeed;
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
             gameObject.tag = "Player";
             DoAction = DoActionVoid;
