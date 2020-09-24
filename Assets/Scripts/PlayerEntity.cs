@@ -27,7 +27,7 @@ public class PlayerEntity : MonoBehaviour
     public Transform ShieldObj;
     public float shieldDuration = 2f;
     public float shieldCooldown = .1f;
-    [Range(30f, 80f)]
+    [Range(1f, 80f)]
     public float shieldMaxSise = 50f;
     public float shieldSpawnSpeed = 1f;
     public bool cooldownResetWhenBulletIsDetected = true;
