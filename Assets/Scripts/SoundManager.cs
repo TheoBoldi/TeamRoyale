@@ -16,6 +16,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource shield_pop;
     public AudioSource shield_parry;
     public AudioSource invisibility;
+    public AudioSource visibility;
     public AudioSource player_death;
     public AudioSource collectible;
 
@@ -69,6 +70,11 @@ public class SoundManager : MonoBehaviour
     public void Invisibility()
     {
         invisibility.Play();
+    }
+
+    public void Visibility()
+    {
+        visibility.Play();
     }
 
     public void PlayerDeath()
