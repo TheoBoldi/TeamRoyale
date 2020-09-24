@@ -69,6 +69,7 @@ public class PlayerEntity : MonoBehaviour
     public float invisibilityCooldown = 6f;
 
     private float invisibilityDurTime = 0f;
+    public List<FieldOfView> enemies;
 
     private Slider cooldownBar;
 
@@ -79,6 +80,7 @@ public class PlayerEntity : MonoBehaviour
     }
     private void Start()
     {
+        enemies.AddRange(GameObject.FindObjectsOfType<FieldOfView>());
         cooldownBar = GetComponentInChildren<Slider>();
         DoAction = DoActionVoid;
         if (gameObject.name.Contains("shield"))
@@ -294,6 +296,12 @@ public class PlayerEntity : MonoBehaviour
         GetComponent<SpriteRenderer>().color = Color.clear;
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
         gameObject.tag = "Untagged";
+        for(int i = 0; i < enemies.Count; i++)
+        {
+            enemies[i].lookAt = false;
+            enemies[i].GetComponentInParent<Turret>().enabled = false;
+            enemies[i].GetComponentInParent<Patrol>().enabled = true;
+        }
         DoAction = DoInvisibility;
     }
 

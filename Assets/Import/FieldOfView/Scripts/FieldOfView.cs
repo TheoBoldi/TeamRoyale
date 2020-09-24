@@ -131,11 +131,6 @@ public class FieldOfView : MonoBehaviour {
             float rotationZ = Mathf.Atan2(difPos.y, difPos.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, rotationZ);
 
-            if (player == null)
-            {
-                lookAt = false;
-            }
-
             if (Vector3.Distance(this.transform.position, player.transform.position) >= maxDistanceToPlayer)
             {
                 GetComponentInParent<Turret>().enabled = false;
