@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public string mainMenuSceneName;
+    public GameObject image;
 
     public void ResumeGame()
     {
         GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().inPaused = false;
+        image.SetActive(false);
         Time.timeScale = 1;
     }
 

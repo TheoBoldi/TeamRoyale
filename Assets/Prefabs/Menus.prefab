@@ -3012,6 +3012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuSceneName: MainMenu
+  image: {fileID: 2598887796192675663}
 --- !u!1 &6100651725600455696
 GameObject:
   m_ObjectHideFlags: 0
