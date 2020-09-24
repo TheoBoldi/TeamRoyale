@@ -306,6 +306,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.30595323
       objectReference: {fileID: 0}
+    - target: {fileID: 2587684191766373197, guid: 47442dda31e68674eb6a1697c9c4acb5,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.61960787
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587684191766373197, guid: 47442dda31e68674eb6a1697c9c4acb5,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.62352943
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587684191766373197, guid: 47442dda31e68674eb6a1697c9c4acb5,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.6233356
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47442dda31e68674eb6a1697c9c4acb5, type: 3}
 --- !u!1001 &329701761
