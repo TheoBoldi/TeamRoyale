@@ -24,6 +24,8 @@ public class Bullet : MonoBehaviour
             var tmp = Instantiate(particle, this.transform);
             tmp.transform.parent = null;
             tmp.transform.localScale = new Vector3(1, 1, 1);
+            SoundManager.instance.BulletHit();
+            SoundManager.instance.PlayerDeath();
             Destroy(gameObject);
         }
 
@@ -32,11 +34,15 @@ public class Bullet : MonoBehaviour
             var tmp = Instantiate(particle, this.transform);
             tmp.transform.parent = null;
             tmp.transform.localScale = new Vector3(1, 1, 1);
+            SoundManager.instance.BulletHit();
             Destroy(gameObject);
         }
 
         if (collision.gameObject.CompareTag("Shield"))
+        {
             Destroy(gameObject);
+            SoundManager.instance.ShieldParry();
+        }
     }
 
 }

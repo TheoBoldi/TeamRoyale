@@ -5,78 +5,77 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
-    public AudioSource backgroundMusic;
-    public AudioSource pickupSound;
-    public AudioSource fallSound;
-    public AudioSource spawnSound;
-    public AudioSource checkout;
-    public AudioClip fall1;
-    public AudioClip fall2;
-    public AudioClip fall3;
-    public AudioClip fall4;
-    public AudioClip fall5;
 
+    [Header("General Sounds")]
+    public AudioSource main_theme;
 
-    public AudioClip background2;
+    [Header("Player Sounds")]
+    public AudioSource slow_time;
+    public AudioSource shield_pop;
+    public AudioSource shield_parry;
+    public AudioSource invisibility;
+    public AudioSource player_death;
 
-
+    [Header("Enemies Sounds")]
+    public AudioSource alert;
+    public AudioSource bullet_hit;
+    public AudioSource bullet_shoot;
 
     private void Awake()
     {
         instance = this;
     }
-    // Start is called before the first frame update
+
     void Start()
     {
-        //instance.BackgroundMusic();
+        instance.MainTheme();
     }
 
-    public void BackgroundMusic()
+    //General
+    public void MainTheme()
     {
-        backgroundMusic.Play();
+        main_theme.Play();
     }
 
-
-    public void PickUpSound()
+    //Player
+    public void SlowTime()
     {
-        pickupSound.Play();
+        slow_time.Play();
     }
 
-    public void FallSound()
+    public void ShieldPop()
     {
-        int rand = Random.Range(0, 5);
-
-        if (rand == 0)
-        {
-            fallSound.clip = fall1;
-        }
-        else if (rand == 1)
-        {
-            fallSound.clip = fall2;
-        }
-        else if (rand == 2)
-        {
-            fallSound.clip = fall3;
-        }
-        else if (rand == 3)
-        {
-            fallSound.clip = fall4;
-        }
-        else if (rand == 4)
-        {
-            fallSound.clip = fall5;
-        }
-
-        fallSound.Play();
+        shield_pop.Play();
     }
 
-    public void SpawnSound()
+    public void ShieldParry()
     {
-        spawnSound.Play();
+        shield_parry.Play();
     }
 
-    public void CheckoutSound()
+    public void Invisibility()
     {
-        checkout.Play();
+        invisibility.Play();
+    }
+
+    public void PlayerDeath()
+    {
+        player_death.Play();
+    }
+
+    //Enemies
+    public void Alert()
+    {
+        alert.Play();
+    }
+
+    public void BulletHit()
+    {
+        bullet_hit.Play();
+    }
+
+    public void BulletShoot()
+    {
+        bullet_shoot.Play();
     }
 }
