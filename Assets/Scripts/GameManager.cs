@@ -3,13 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
     [Header("Menus")]
-    public GameObject pauseMenu;
-    public GameObject victoryPanel;
-    public GameObject controlMenu;
+    public GameObject menus;
+
+    private GameObject image;
+    private GameObject controlMenu;
+    private GameObject pauseMenu;
+    private GameObject victoryPanel;
 
     [Header("Player")]
     public GameObject player;
@@ -22,6 +26,14 @@ public class GameManager : MonoBehaviour
 
     private bool isReset = false;
 
+    private void Awake()
+    {
+        image = menus.transform.GetChild(0).gameObject;
+        controlMenu = menus.transform.GetChild(1).gameObject;
+        pauseMenu = menus.transform.GetChild(2).gameObject;
+        victoryPanel = menus.transform.GetChild(3).gameObject;
+    }
+
     private void Start()
     {
         TransitionController.instance?.FadeOut();
@@ -31,28 +43,30 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)
-            && victoryPanel.gameObject.activeInHierarchy == false
-            && controlMenu.gameObject.activeInHierarchy == false)
+            && victoryPanel.activeInHierarchy == false
+            && controlMenu.activeInHierarchy == false)
         {
-            if (pauseMenu.gameObject.activeInHierarchy == false)
+            if (pauseMenu.activeInHierarchy == false)
             {
                 inPaused = true;
-                pauseMenu.gameObject.SetActive(true);
+                image.SetActive(true);
+                pauseMenu.SetActive(true);
                 Time.timeScale = 0;
             }
             else
             {
                 inPaused = false;
-                pauseMenu.gameObject.SetActive(false);
+                pauseMenu.SetActive(false);
+                image.SetActive(false);
                 Time.timeScale = 1;
             }
         }
 
         if (player.GetComponent<PlayerGoals>().levelFinished)
         {
-            if (victoryPanel.gameObject.activeInHierarchy == false)
+            if (victoryPanel.activeInHierarchy == false)
             {
-                victoryPanel.gameObject.SetActive(true);
+                victoryPanel.SetActive(true);
                 Time.timeScale = 0;
             }
         }
