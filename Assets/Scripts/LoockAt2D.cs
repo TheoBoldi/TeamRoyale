@@ -9,7 +9,7 @@ public class LoockAt2D : MonoBehaviour
 
     private void Start()
     {
-        target = GameObject.Find("Player").transform;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Update()
