@@ -310,6 +310,7 @@ public class PlayerEntity : MonoBehaviour
             enemies[i].lookAt = false;
             enemies[i].GetComponentInParent<Turret>().enabled = false;
             enemies[i].GetComponentInParent<Patrol>().enabled = true;
+            enemies[i].gameObject.transform.parent.GetChild(2).GetChild(0).gameObject.SetActive(false);
         }
         DoAction = DoInvisibility;
     }
