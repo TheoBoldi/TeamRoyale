@@ -1596,7 +1596,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1699007773}
+      objectReference: {fileID: 1641940125}
     - target: {fileID: 8713268399843616320, guid: b4133ad5e751f1442ac4f3e9f70fd346,
         type: 3}
       propertyPath: objects.Array.data[0]
@@ -3866,11 +3866,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1699007773 stripped
+--- !u!1 &1641940125 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4141840883370220923, guid: d2e420970d4d1ad408ea7a4607b24525,
     type: 3}
-  m_PrefabInstance: {fileID: 289595832}
+  m_PrefabInstance: {fileID: 1587970233}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1708048010
 PrefabInstance:
