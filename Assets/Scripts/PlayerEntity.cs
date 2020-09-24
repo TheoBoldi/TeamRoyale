@@ -10,6 +10,7 @@ public enum Power
 {
     Shield,
     Time,
+    Invisibility,
 }
 
 public class PlayerEntity : MonoBehaviour
@@ -63,6 +64,12 @@ public class PlayerEntity : MonoBehaviour
     private float slowDurTime = 0f;
     private float fastDurTime = 0f;
 
+    [Header("Invisibility Power")]
+    public float invisibilityDuration = 3f;
+    public float invisibilityCooldown = 6f;
+
+    private float invisibilityDurTime = 0f;
+
     private Slider cooldownBar;
 
     private void Awake()
@@ -74,7 +81,10 @@ public class PlayerEntity : MonoBehaviour
     {
         cooldownBar = GetComponentInChildren<Slider>();
         DoAction = DoActionVoid;
-        ShieldObj.localScale = Vector3.zero;
+        if (gameObject.name.Contains("shield"))
+        {
+            ShieldObj.localScale = Vector3.zero;
+        }
     }
 
     // Update is called once per frame
@@ -94,7 +104,7 @@ public class PlayerEntity : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("bullet") && GetComponentInChildren<Shield>().isTrigger)
+        if (gameObject.name.Contains("shield") && collision.CompareTag("bullet") && GetComponentInChildren<Shield>().isTrigger)
         {
             if (cooldownResetWhenBulletIsDetected)
                 gameObject.GetComponentInParent<PlayerEntity>().powerCooldown = 0f;
@@ -126,6 +136,9 @@ public class PlayerEntity : MonoBehaviour
                     break;
                 case global::Power.Time:
                     StartTime();
+                    break;
+                case global::Power.Invisibility:
+                    StartInvisibility();
                     break;
                 default:
                     break;
@@ -271,5 +284,30 @@ public class PlayerEntity : MonoBehaviour
         }
     }
     #endregion Time Power
+
+    #region Invisibility Power
+    public void StartInvisibility()
+    {
+        SoundManager.instance.Invisibility();
+        powerCooldown = invisibilityCooldown;
+        invisibilityDurTime = invisibilityDuration;
+        GetComponent<SpriteRenderer>().color = Color.clear;
+        gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        gameObject.tag = "Untagged";
+        DoAction = DoInvisibility;
+    }
+
+    public void DoInvisibility()
+    {
+        invisibilityDurTime -= Time.deltaTime;
+        if(invisibilityDurTime <= 0f)
+        {
+            GetComponent<SpriteRenderer>().color = Color.white;
+            gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            gameObject.tag = "Player";
+            DoAction = DoActionVoid;
+        }
+    }
+    #endregion Invisibility Power
     #endregion Powers
 }
