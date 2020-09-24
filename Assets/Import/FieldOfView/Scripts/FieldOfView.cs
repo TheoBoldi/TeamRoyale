@@ -124,22 +124,26 @@ public class FieldOfView : MonoBehaviour {
     public void TargetPlayer()
     {
         var player = GameObject.FindGameObjectWithTag("Player");
-        Vector3 difPos = player.transform.position - transform.position;
-        float rotationZ = Mathf.Atan2(difPos.y, difPos.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rotationZ);
 
-        if (Vector3.Distance(this.transform.position, player.transform.position) >= maxDistanceToPlayer)
+        if(player != null)
         {
-            GetComponentInParent<Turret>().enabled = false;
-            if (!this.gameObject.transform.parent.parent.name.Contains("immobile"))
+            Vector3 difPos = player.transform.position - transform.position;
+            float rotationZ = Mathf.Atan2(difPos.y, difPos.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, 0f, rotationZ);
+
+            if (Vector3.Distance(this.transform.position, player.transform.position) >= maxDistanceToPlayer)
             {
-                GetComponentInParent<Patrol>().enabled = true;
+                GetComponentInParent<Turret>().enabled = false;
+                if (!this.gameObject.transform.parent.parent.name.Contains("immobile"))
+                {
+                    GetComponentInParent<Patrol>().enabled = true;
+                }
+                else if (this.gameObject.transform.parent.parent.name.Contains("immobile"))
+                {
+                    transform.eulerAngles = new Vector3(originalRot.x, originalRot.y, originalRot.z);
+                }
+                lookAt = false;
             }
-            else if(this.gameObject.transform.parent.parent.name.Contains("immobile"))
-            {
-                transform.eulerAngles = new Vector3(originalRot.x, originalRot.y, originalRot.z);
-            }
-            lookAt = false;
         }
     }
 
