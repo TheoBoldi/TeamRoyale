@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 663a06b8b7188314599c767249d6ac06
   - enabled: 1
+    path: Assets/Scenes/PlayerRandom.unity
+    guid: a61c5a06a831f0147a82f476736d0a3d
+  - enabled: 1
     path: Assets/Scenes/Lolo4.unity
     guid: f9cc8787ee934194890091ba7dea53bd
   m_configObjects: {}
