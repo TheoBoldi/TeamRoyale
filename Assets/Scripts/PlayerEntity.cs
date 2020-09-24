@@ -102,6 +102,15 @@ public class PlayerEntity : MonoBehaviour
         }
 
         cooldownBar.value = - powerCooldown;
+
+        if(cooldownBar.value == cooldownBar.maxValue)
+        {
+            cooldownBar.gameObject.SetActive(false);
+        }
+        else
+        {
+            cooldownBar.gameObject.SetActive(true);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

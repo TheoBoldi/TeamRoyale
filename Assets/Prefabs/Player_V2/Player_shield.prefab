@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2901961, g: 0.5019608, b: 0.7960785, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -390,6 +390,9 @@ MonoBehaviour:
   slowDuration: 4
   slowCooldown: 9
   fastAfterSlowDuration: 3
+  invisibilityDuration: 3
+  invisibilityCooldown: 6
+  enemies: []
 --- !u!95 &2292239070712221535
 Animator:
   serializedVersion: 3
@@ -630,8 +633,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 120}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchoredPosition: {x: 0, y: 144.72}
+  m_SizeDelta: {x: 114.53183, y: 46.661842}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2292239071494388684
 MonoBehaviour:
