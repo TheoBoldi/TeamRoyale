@@ -279,6 +279,7 @@ public class PlayerEntity : MonoBehaviour
             Time.timeScale = fastSpeedMultiplicator;
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
             fastDurTime = fastAfterSlowDuration;
+            SoundManager.instance.SpeedTime();
             DoAction = DoFastTime;
         }
     }

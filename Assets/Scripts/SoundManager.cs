@@ -12,6 +12,7 @@ public class SoundManager : MonoBehaviour
 
     [Header("Player Sounds")]
     public AudioSource slow_time;
+    public AudioSource speed_time;
     public AudioSource shield_pop;
     public AudioSource shield_parry;
     public AudioSource invisibility;
@@ -48,6 +49,11 @@ public class SoundManager : MonoBehaviour
     public void SlowTime()
     {
         slow_time.Play();
+    }
+
+    public void SpeedTime()
+    {
+        speed_time.Play();
     }
 
     public void ShieldPop()
