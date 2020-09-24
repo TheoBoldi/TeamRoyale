@@ -537,7 +537,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   radius: 20
   totalAngle: 90
   maxDistanceToPlayer: 25
