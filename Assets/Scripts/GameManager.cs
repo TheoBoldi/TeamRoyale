@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         TransitionController.instance?.FadeOut();
         Time.timeScale = 1;
     }
