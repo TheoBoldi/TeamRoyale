@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
 
     [Header("General Sounds")]
     public AudioSource main_theme;
+    public AudioSource button_click;
 
     [Header("Player Sounds")]
     public AudioSource slow_time;
@@ -36,6 +37,11 @@ public class SoundManager : MonoBehaviour
     public void MainTheme()
     {
         main_theme.Play();
+    }
+
+    public void ButtonClick()
+    {
+        button_click.Play();
     }
 
     //Player
