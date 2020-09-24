@@ -2943,8 +2943,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4135a871276ac44b86377a0ac78d667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 800
-  durationAfterRoll: 1
+  speed: 1200
+  durationAfterRoll: 1.5
   roll: {fileID: 750047250}
   imageToChange: {fileID: 402075415}
   time: {fileID: 21300000, guid: 55fd73dff06766c4daf71d98a2d5103f, type: 3}

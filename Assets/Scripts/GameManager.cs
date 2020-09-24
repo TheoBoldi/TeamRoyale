@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     [Header("ObjectsToCollect")]
     public GameObject[] objects;
 
+    [Header("SceneAfterDefeat")]
+    public string sceneAfterDefeatName;
+
     [HideInInspector]
     public bool inPaused = false;
 
@@ -76,7 +79,7 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0;
             isReset = true;
-            TransitionController.instance?.FadeIn(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
+            TransitionController.instance?.FadeIn(() => SceneManager.LoadScene(sceneAfterDefeatName));
         }
     }
 }

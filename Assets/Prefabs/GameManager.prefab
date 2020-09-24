@@ -43,9 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef00b17deb24dd41bb8c1277cc1fd3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 0}
-  victoryPanel: {fileID: 0}
-  defeatPanel: {fileID: 0}
-  controlMenu: {fileID: 0}
+  menus: {fileID: 0}
   player: {fileID: 0}
+  objects: []
+  sceneAfterDefeatName: PlayerRandom
   inPaused: 0

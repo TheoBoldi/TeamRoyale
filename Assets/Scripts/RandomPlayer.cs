@@ -31,6 +31,7 @@ public class RandomPlayer : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         TransitionController.instance?.FadeOut();
         playerChosen = UnityEngine.Random.Range(1, 4);
         Debug.Log(playerChosen.ToString());
