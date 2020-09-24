@@ -384,6 +384,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1198609091, guid: d2e420970d4d1ad408ea7a4607b24525, type: 3}
+      propertyPath: powerType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4141840883370220923, guid: d2e420970d4d1ad408ea7a4607b24525,
         type: 3}
       propertyPath: m_Name
@@ -490,7 +494,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offsetAngle: -90
-  target: {fileID: 0}
 --- !u!1 &627419912
 GameObject:
   m_ObjectHideFlags: 0
@@ -2321,7 +2324,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offsetAngle: -90
-  target: {fileID: 0}
 --- !u!1 &1902688789
 GameObject:
   m_ObjectHideFlags: 0
@@ -2604,7 +2606,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offsetAngle: -90
-  target: {fileID: 0}
 --- !u!1 &4303705590905930879
 GameObject:
   m_ObjectHideFlags: 0

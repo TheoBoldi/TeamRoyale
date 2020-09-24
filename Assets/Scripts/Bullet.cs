@@ -40,8 +40,8 @@ public class Bullet : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Shield"))
         {
-            Destroy(gameObject);
             SoundManager.instance.ShieldParry();
+            Destroy(gameObject);
         }
     }
 

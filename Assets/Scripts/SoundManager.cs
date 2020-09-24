@@ -15,6 +15,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource shield_parry;
     public AudioSource invisibility;
     public AudioSource player_death;
+    public AudioSource collectible;
 
     [Header("Enemies Sounds")]
     public AudioSource alert;
@@ -61,6 +62,11 @@ public class SoundManager : MonoBehaviour
     public void PlayerDeath()
     {
         player_death.Play();
+    }
+
+    public void Collectible()
+    {
+        collectible.Play();
     }
 
     //Enemies
