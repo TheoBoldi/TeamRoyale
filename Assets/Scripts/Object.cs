@@ -9,6 +9,7 @@ public class Object : MonoBehaviour
     {
         if (collision.CompareTag("Player") && collision.GetType() == typeof(UnityEngine.CapsuleCollider2D))
         {
+            SoundManager.instance.Collectible();
             collision.GetComponent<PlayerGoals>().objectsCollected++;
             Destroy(gameObject);
         }
