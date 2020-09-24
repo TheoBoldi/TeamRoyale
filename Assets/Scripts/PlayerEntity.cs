@@ -131,6 +131,7 @@ public class PlayerEntity : MonoBehaviour
     #region Shild Power
     public void StartShield()
     {
+        SoundManager.instance.ShieldPop();
         powerCooldown = shieldCooldown;
         shieldDurTime = shieldDuration;
         if (activeGrowthPhasesNumber < growthPhaseNumber)
@@ -143,7 +144,6 @@ public class PlayerEntity : MonoBehaviour
 
     public void DoShield()
     {
-        SoundManager.instance.ShieldPop();
         shieldDurTime -= Time.deltaTime;
         if (shieldDurTime <= 0f)
         {
@@ -225,6 +225,7 @@ public class PlayerEntity : MonoBehaviour
     #region Time Power
     public void StartTime()
     {
+        SoundManager.instance.SlowTime();
         powerCooldown = slowCooldown;
 
         if (!alsoSlowDownPlayer)
@@ -239,7 +240,6 @@ public class PlayerEntity : MonoBehaviour
 
     public void DoSlowTime()
     {
-        SoundManager.instance.SlowTime();
         slowDurTime -= Time.unscaledDeltaTime;
         if (slowDurTime <= 0f)
         {

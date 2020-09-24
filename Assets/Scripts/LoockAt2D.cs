@@ -5,7 +5,12 @@ using UnityEngine;
 public class LoockAt2D : MonoBehaviour
 {
     public float offsetAngle = 0f;
-    public Transform target;
+    private Transform target;
+
+    private void Start()
+    {
+        target = GameObject.Find("Player").transform;
+    }
 
     private void Update()
     {
