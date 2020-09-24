@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lolo4.unity
     guid: f9cc8787ee934194890091ba7dea53bd
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 84c083ef3fe252a4da91a3133aed5656
   m_configObjects: {}
