@@ -4644,6 +4644,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1950516203044285789, guid: 70e1a3b10c2885e4e8267092567f85b3,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2480188657681605348, guid: 70e1a3b10c2885e4e8267092567f85b3,
         type: 3}
       propertyPath: powerType

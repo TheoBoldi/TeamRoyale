@@ -322,6 +322,7 @@ public class PlayerEntity : MonoBehaviour
         invisibilityDurTime = invisibilityDuration;
         lerpTime = 1f;
         isInvisible = true;
+        GetComponent<PlayerMovement>().moveSpeed = -GetComponent<PlayerMovement>().moveSpeed;
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
         gameObject.tag = "Untagged";
         for(int i = 0; i < enemies.Count; i++)
@@ -342,6 +343,7 @@ public class PlayerEntity : MonoBehaviour
             SoundManager.instance.Visibility();
             lerpTime = 0;
             isInvisible = false;
+            GetComponent<PlayerMovement>().moveSpeed = -GetComponent<PlayerMovement>().moveSpeed;
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
             gameObject.tag = "Player";
             DoAction = DoActionVoid;
