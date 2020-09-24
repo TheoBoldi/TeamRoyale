@@ -11,13 +11,13 @@ public class VictoryPanel : MonoBehaviour
     public void NextLevel()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(nextLevelSceneName);
+        TransitionController.instance?.FadeIn(() => SceneManager.LoadScene(nextLevelSceneName));
     }
 
     public void RetryLevel()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        TransitionController.instance?.FadeIn(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
     }
 
     public void QuitToMenu()

@@ -14,7 +14,8 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(nameLevel);
+        Time.timeScale = 1;
+        TransitionController.instance?.FadeIn(() => SceneManager.LoadScene(nameLevel));
     }
 
     public void QuitGame()

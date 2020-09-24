@@ -1,14 +1,15 @@
 ﻿using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [Header("Menus")]
     public GameObject pauseMenu;
     public GameObject victoryPanel;
-    public GameObject defeatPanel;
     public GameObject controlMenu;
 
     [Header("Player")]
@@ -20,11 +21,18 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public bool inPaused = false;
 
+    private bool isReset = false;
+
+    private void Start()
+    {
+        TransitionController.instance?.FadeOut();
+        Time.timeScale = 1;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)
             && victoryPanel.gameObject.activeInHierarchy == false
-            && defeatPanel.gameObject.activeInHierarchy == false
             && controlMenu.gameObject.activeInHierarchy == false)
         {
             if (pauseMenu.gameObject.activeInHierarchy == false)
@@ -50,13 +58,11 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (player.GetComponent<PlayerEntity>().healthPoint <= 0)
+        if (player.GetComponent<PlayerEntity>().healthPoint <= 0 && !isReset)
         {
-            if (defeatPanel.gameObject.activeInHierarchy == false)
-            {
-                defeatPanel.gameObject.SetActive(true);
-                Time.timeScale = 0;
-            }
+            Time.timeScale = 0;
+            isReset = true;
+            TransitionController.instance?.FadeIn(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
         }
     }
 }

@@ -16,7 +16,7 @@ public class PauseMenu : MonoBehaviour
     public void RetryLevel()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        TransitionController.instance?.FadeIn(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
     }
 
     public void QuitToMenu()
