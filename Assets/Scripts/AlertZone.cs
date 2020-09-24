@@ -9,6 +9,8 @@ public class AlertZone : MonoBehaviour
     private GameObject red;
     private FieldOfView fov;
 
+    private bool soundEffect = false;
+
     private void Start()
     {
         player = GameObject.Find("Player");
@@ -22,11 +24,18 @@ public class AlertZone : MonoBehaviour
         if (fov.lookAt)
         {
             red.SetActive(true);
+
+            if (!soundEffect)
+            {
+                SoundManager.instance.Alert();
+                soundEffect = true;
+            }
         }
 
         else
         {
             red.SetActive(false);
+            soundEffect = false;
         }
     }
 
