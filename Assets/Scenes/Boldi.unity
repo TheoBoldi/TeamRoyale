@@ -1381,7 +1381,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 4141840882538012098}
+      objectReference: {fileID: 674471514}
     - target: {fileID: 8713268399843616320, guid: b4133ad5e751f1442ac4f3e9f70fd346,
         type: 3}
       propertyPath: objects.Array.data[0]
@@ -2001,6 +2001,12 @@ Transform:
   m_Father: {fileID: 1194839059}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &674471514 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1950516203044285788, guid: 70e1a3b10c2885e4e8267092567f85b3,
+    type: 3}
+  m_PrefabInstance: {fileID: 2480188657801976729}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &722793718
 GameObject:
   m_ObjectHideFlags: 0
@@ -4916,12 +4922,6 @@ EdgeCollider2D:
   - {x: 13.515236, y: 6.5067983}
   - {x: 13.244246, y: 7.0420136}
   - {x: 0, y: 0}
---- !u!1 &4141840882538012098 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4894908807163133158, guid: 338150c687b1958419751a2b14d4d2f6,
-    type: 3}
-  m_PrefabInstance: {fileID: 8832953009840185636}
-  m_PrefabAsset: {fileID: 0}
 --- !u!33 &5349951832490756882
 MeshFilter:
   m_ObjectHideFlags: 0
