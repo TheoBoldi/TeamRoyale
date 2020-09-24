@@ -122,9 +122,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4141840883370220927}
   - component: {fileID: 4141840883370220920}
-  - component: {fileID: 4141840883370220921}
-  - component: {fileID: -8019427479145684032}
-  - component: {fileID: 1198609095}
+  - component: {fileID: 8469554841672969699}
+  - component: {fileID: 3559129303761267617}
+  - component: {fileID: 6636530950076425430}
   - component: {fileID: 4141840883370220922}
   - component: {fileID: 7123888257238355299}
   - component: {fileID: 1198609091}
@@ -200,7 +200,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &4141840883370220921
+--- !u!50 &8469554841672969699
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -221,7 +221,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &-8019427479145684032
+--- !u!61 &3559129303761267617
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -234,7 +234,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0063780546, y: 0.0063774586}
+  m_Offset: {x: -0.0054574013, y: -0.016373634}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -245,10 +245,10 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.4117317, y: 4.610805}
+  m_Size: {x: 3.6791964, y: 4.639781}
   m_EdgeRadius: 0
---- !u!61 &1198609095
-BoxCollider2D:
+--- !u!70 &6636530950076425430
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -260,19 +260,9 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.012756109, y: 0.019134045}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5, y: 5}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.6796098, y: 4.894414}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.027710795, y: -0.06466007}
+  m_Size: {x: 3.4296858, y: 4.538143}
+  m_Direction: 0
 --- !u!114 &4141840883370220922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,7 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 20
-  rb: {fileID: 4141840883370220921}
+  rb: {fileID: 8469554841672969699}
 --- !u!114 &7123888257238355299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,6 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelFinished: 0
+  objectsCollected: 0
 --- !u!114 &1198609091
 MonoBehaviour:
   m_ObjectHideFlags: 0
