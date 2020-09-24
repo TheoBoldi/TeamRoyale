@@ -12,6 +12,13 @@ public class PauseMenu : MonoBehaviour
         GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().inPaused = false;
         Time.timeScale = 1;
     }
+
+    public void RetryLevel()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     public void QuitToMenu()
     {
         SceneManager.LoadScene(mainMenuSceneName);

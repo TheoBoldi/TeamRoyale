@@ -97,6 +97,8 @@ public class PlayerEntity : MonoBehaviour
         }
         else if (collision.CompareTag("bullet"))
             healthPoint -= collision.GetComponent<Bullet>().damage;
+        else if (collision.CompareTag("Laser"))
+            healthPoint = 0;
     }
 
     #region Powers

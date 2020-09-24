@@ -8,6 +8,9 @@ TagManager:
   - bullet
   - Shield
   - Object
+  - ennemy
+  - win
+  - Laser
   layers:
   - Default
   - TransparentFX
