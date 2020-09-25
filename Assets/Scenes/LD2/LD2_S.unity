@@ -1577,6 +1577,11 @@ PrefabInstance:
       propertyPath: menus
       value: 
       objectReference: {fileID: 325144086}
+    - target: {fileID: 8713268399843616320, guid: b4133ad5e751f1442ac4f3e9f70fd346,
+        type: 3}
+      propertyPath: sceneAfterDefeatName
+      value: PlayerRandomLD2
+      objectReference: {fileID: 0}
     - target: {fileID: 8713268399843616322, guid: b4133ad5e751f1442ac4f3e9f70fd346,
         type: 3}
       propertyPath: m_Name
