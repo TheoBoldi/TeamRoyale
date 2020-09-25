@@ -9,6 +9,8 @@ public class SoundManager : MonoBehaviour
     [Header("General Sounds")]
     public AudioSource main_theme;
     public AudioSource button_click;
+    public AudioSource selection_sound;
+    public AudioSource selected_sound;
 
     [Header("Player Sounds")]
     public AudioSource slow_time;
@@ -44,6 +46,18 @@ public class SoundManager : MonoBehaviour
     public void ButtonClick()
     {
         button_click.Play();
+    }
+
+    public void Selection()
+    {
+        StartCoroutine(Select());
+    }
+
+    IEnumerator Select()
+    {
+        selection_sound.Play();
+        yield return new WaitForSeconds(selection_sound.clip.length);
+        selected_sound.Play();
     }
 
     //Player

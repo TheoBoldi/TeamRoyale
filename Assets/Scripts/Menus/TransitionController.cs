@@ -20,6 +20,10 @@ public class TransitionController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Start()
+    {
+        SoundManager.instance.Selection();
+    }
 
     public void FadeIn(Action callback)
     {
