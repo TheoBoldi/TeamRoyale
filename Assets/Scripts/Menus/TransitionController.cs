@@ -20,11 +20,6 @@ public class TransitionController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
-    {
-        SoundManager.instance.Selection();
-    }
-
     public void FadeIn(Action callback)
     {
         transitionImage.DOFade(1, timeToTransition / 2).SetUpdate(true).OnComplete(()=> callback());
