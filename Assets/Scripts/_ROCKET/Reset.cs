@@ -5,20 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class Reset : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string retrySceneName;
+    public string mainMenu;
 
     public void Resetscene()
     {
-        SceneManager.LoadScene(1);
+        TransitionController.instance?.FadeIn(() => SceneManager.LoadScene(retrySceneName));
+    }
+
+    public void ReturnMenu()
+    {
+        TransitionController.instance?.FadeIn(() => SceneManager.LoadScene(mainMenu));
     }
 }

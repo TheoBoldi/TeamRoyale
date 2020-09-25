@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        TransitionController.instance?.FadeOut();
         zebi = GetComponent<AudioSource>();
     }
 
