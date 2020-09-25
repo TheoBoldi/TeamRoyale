@@ -2250,6 +2250,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2263953473287040215, guid: 10fd78224da4a5649a4ba39301ecc928,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1708048011}
+    - target: {fileID: 2263953473287040215, guid: 10fd78224da4a5649a4ba39301ecc928,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ButtonClick
+      objectReference: {fileID: 0}
     - target: {fileID: 6100651723547152163, guid: 10fd78224da4a5649a4ba39301ecc928,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2290,10 +2300,25 @@ PrefabInstance:
       propertyPath: nextLevelSceneName
       value: PlayerRandomLD1
       objectReference: {fileID: 0}
+    - target: {fileID: 6100651723918032651, guid: 10fd78224da4a5649a4ba39301ecc928,
+        type: 3}
+      propertyPath: retrySceneName
+      value: _TUTO
+      objectReference: {fileID: 0}
     - target: {fileID: 6100651723918032654, guid: 10fd78224da4a5649a4ba39301ecc928,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100651724249632060, guid: 10fd78224da4a5649a4ba39301ecc928,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1708048011}
+    - target: {fileID: 6100651724249632060, guid: 10fd78224da4a5649a4ba39301ecc928,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ButtonClick
       objectReference: {fileID: 0}
     - target: {fileID: 6100651724285875486, guid: 10fd78224da4a5649a4ba39301ecc928,
         type: 3}
@@ -2375,6 +2400,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 69.980835
       objectReference: {fileID: 0}
+    - target: {fileID: 6100651724797162100, guid: 10fd78224da4a5649a4ba39301ecc928,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1708048011}
+    - target: {fileID: 6100651724797162100, guid: 10fd78224da4a5649a4ba39301ecc928,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ButtonClick
+      objectReference: {fileID: 0}
     - target: {fileID: 6100651724797162101, guid: 10fd78224da4a5649a4ba39301ecc928,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -2405,6 +2440,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6100651724978436108, guid: 10fd78224da4a5649a4ba39301ecc928,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1708048011}
+    - target: {fileID: 6100651724978436108, guid: 10fd78224da4a5649a4ba39301ecc928,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ButtonClick
+      objectReference: {fileID: 0}
     - target: {fileID: 6100651724978436109, guid: 10fd78224da4a5649a4ba39301ecc928,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -2434,6 +2479,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100651725097494692, guid: 10fd78224da4a5649a4ba39301ecc928,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1708048011}
+    - target: {fileID: 6100651725097494692, guid: 10fd78224da4a5649a4ba39301ecc928,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ButtonClick
       objectReference: {fileID: 0}
     - target: {fileID: 6100651725097494693, guid: 10fd78224da4a5649a4ba39301ecc928,
         type: 3}
