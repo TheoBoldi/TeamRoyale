@@ -9,11 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 663a06b8b7188314599c767249d6ac06
   - enabled: 1
-    path: Assets/Scenes/PlayerRandom.unity
-    guid: a61c5a06a831f0147a82f476736d0a3d
+    path: Assets/Scenes/LD1/PlayerRandomLD1.unity
+    guid: c2f6708990311f34b9a980ee59d6b588
   - enabled: 1
-    path: Assets/Scenes/Lolo4.unity
-    guid: f9cc8787ee934194890091ba7dea53bd
+    path: Assets/Scenes/LD1/LD1_I.unity
+    guid: eab0b81ec5bb17e4d8dfff4c9bafcef7
+  - enabled: 1
+    path: Assets/Scenes/LD1/LD1_S.unity
+    guid: d7e4aecaaf37b20459dea9c9d4013297
+  - enabled: 1
+    path: Assets/Scenes/LD1/LD1_T.unity
+    guid: eeffc187bb908df4596d4363ee4b0d6c
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 84c083ef3fe252a4da91a3133aed5656

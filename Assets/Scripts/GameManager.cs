@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
         {
             if (victoryPanel.activeInHierarchy == false)
             {
+                image.SetActive(true);
                 victoryPanel.SetActive(true);
                 Time.timeScale = 0;
             }
