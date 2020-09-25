@@ -1556,6 +1556,11 @@ PrefabInstance:
       propertyPath: nextLevelSceneName
       value: _R1 game
       objectReference: {fileID: 0}
+    - target: {fileID: 6100651723918032651, guid: 10fd78224da4a5649a4ba39301ecc928,
+        type: 3}
+      propertyPath: retrySceneName
+      value: PlayerRandomLD1
+      objectReference: {fileID: 0}
     - target: {fileID: 6100651723918032654, guid: 10fd78224da4a5649a4ba39301ecc928,
         type: 3}
       propertyPath: m_IsActive

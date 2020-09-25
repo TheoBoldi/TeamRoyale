@@ -7,6 +7,7 @@ public class VictoryPanel : MonoBehaviour
 {
     public string mainMenuSceneName;
     public string nextLevelSceneName;
+    public string retrySceneName;
 
     public void NextLevel()
     {
@@ -17,7 +18,7 @@ public class VictoryPanel : MonoBehaviour
     public void RetryLevel()
     {
         Time.timeScale = 1;
-        TransitionController.instance?.FadeIn(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
+        TransitionController.instance?.FadeIn(() => SceneManager.LoadScene(retrySceneName));
     }
 
     public void QuitToMenu()
