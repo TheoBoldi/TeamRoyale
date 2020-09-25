@@ -2194,10 +2194,15 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6100651723888746438, guid: 10fd78224da4a5649a4ba39301ecc928,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6100651723918032651, guid: 10fd78224da4a5649a4ba39301ecc928,
         type: 3}
       propertyPath: nextLevelSceneName
-      value: MainMenu
+      value: PlayerRandomLD1
       objectReference: {fileID: 0}
     - target: {fileID: 6100651723918032654, guid: 10fd78224da4a5649a4ba39301ecc928,
         type: 3}
@@ -5623,6 +5628,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TransitionController
+      objectReference: {fileID: 0}
+    - target: {fileID: 4862130628386153257, guid: 929a06bdfe02cb249b6a8b8dd186adb9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 929a06bdfe02cb249b6a8b8dd186adb9, type: 3}

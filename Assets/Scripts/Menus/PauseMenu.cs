@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public string mainMenuSceneName;
+    public string playerRandomSceneName;
     public GameObject image;
 
     public void ResumeGame()
@@ -18,7 +19,7 @@ public class PauseMenu : MonoBehaviour
     public void RetryLevel()
     {
         Time.timeScale = 1;
-        TransitionController.instance?.FadeIn(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
+        TransitionController.instance?.FadeIn(() => SceneManager.LoadScene(playerRandomSceneName));
     }
 
     public void QuitToMenu()

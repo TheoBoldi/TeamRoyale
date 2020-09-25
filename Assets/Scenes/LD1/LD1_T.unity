@@ -1936,6 +1936,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -107
       objectReference: {fileID: 0}
+    - target: {fileID: 6100651725457990141, guid: 10fd78224da4a5649a4ba39301ecc928,
+        type: 3}
+      propertyPath: playerRandomSceneName
+      value: PlayerRandomLD1
+      objectReference: {fileID: 0}
     - target: {fileID: 6100651725600455692, guid: 10fd78224da4a5649a4ba39301ecc928,
         type: 3}
       propertyPath: m_LocalPosition.x
