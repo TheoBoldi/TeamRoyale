@@ -7,6 +7,7 @@ public class Reset : MonoBehaviour
 {
     public string retrySceneName;
     public string mainMenu;
+    public string aleatoire2;
 
     public void Resetscene()
     {
@@ -16,5 +17,10 @@ public class Reset : MonoBehaviour
     public void ReturnMenu()
     {
         TransitionController.instance?.FadeIn(() => SceneManager.LoadScene(mainMenu));
+    }
+
+    public void NextScene()
+    {
+        TransitionController.instance?.FadeIn(() => SceneManager.LoadScene(aleatoire2));
     }
 }

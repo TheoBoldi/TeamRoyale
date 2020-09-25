@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public GameObject losetex;
     public GameObject wintex;
     public GameObject losebut;
+    public GameObject nextbut;
     public GameObject quit;
 
     public float playerspeed = 0f;
@@ -145,7 +146,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "win")
         {
             wintex.SetActive(true);
-            losebut.SetActive(true);
+            nextbut.SetActive(true);
             quit.SetActive(true);
 
             zebi.clip = win;
