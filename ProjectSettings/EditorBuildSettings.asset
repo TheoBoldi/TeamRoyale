@@ -27,6 +27,21 @@ EditorBuildSettings:
     path: Assets/Scenes/LD1/_R1 game.unity
     guid: 8b6438a080bb22c49bc480d66841106c
   - enabled: 1
+    path: Assets/Scenes/LD2/PlayerRandomLD2.unity
+    guid: 852da0022da22a24a807b0280e57a77e
+  - enabled: 1
+    path: Assets/Scenes/LD2/LD2_I.unity
+    guid: d9a8eb894da2d4f41a9e489082feb87d
+  - enabled: 1
+    path: Assets/Scenes/LD2/LD2_S.unity
+    guid: a7d4e166fa2c2bd409955458008d2449
+  - enabled: 1
+    path: Assets/Scenes/LD2/LD2_T.unity
+    guid: 80282987161d8db469eb7bdc1ba916cc
+  - enabled: 1
+    path: Assets/Scenes/LD2/_R2 game.unity
+    guid: 0c9ea464b8363b24ca6d802cfb6794c2
+  - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 84c083ef3fe252a4da91a3133aed5656
   m_configObjects: {}
